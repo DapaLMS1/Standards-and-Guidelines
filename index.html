@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infection Control Guidelines & Standards</title>
+    
+    <!-- Tailwind CSS for layout utilities -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons for visual flair -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Import a clean, modern font */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        :root {
+            --brand-purple: #532A8C;
+            --brand-purple-muted: #9D8ABB;
+            --brand-green: #7ABF49;
+            --brand-green-light: #96BF78;
+            --brand-offwhite: #F2F2F2;
+            --brand-lilac: #C3ACE8;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--brand-offwhite);
+            color: var(--brand-purple);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- Flip Card 3D Setup --- */
+        .flip-card {
+            background-color: transparent;
+            width: 100%;
+            /* Height is now controlled by Tailwind classes for better responsive scaling */
+            perspective: 1200px;
+            cursor: pointer;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        /* Trigger flip on hover (desktop), keyboard focus, and tap (mobile) */
+        .flip-card:hover .flip-card-inner,
+        .flip-card:focus-visible .flip-card-inner,
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            border-radius: 1rem;
+            /* Soft shadow using the brand purple */
+            box-shadow: 0 4px 15px -3px rgba(83, 42, 140, 0.15);
+        }
+
+        /* --- Card Front Styling --- */
+        .flip-card-front {
+            background-color: var(--brand-purple);
+            color: var(--brand-offwhite);
+            border: 2px solid var(--brand-lilac);
+            text-align: center;
+        }
+
+        /* --- Card Back Styling --- */
+        .flip-card-back {
+            background-color: #ffffff; /* White to pop against the F2F2F2 body */
+            color: var(--brand-purple);
+            transform: rotateY(180deg);
+            /* Thick brand green border to frame the info */
+            border: 3px solid var(--brand-green);
+            text-align: left;
+            align-items: flex-start;
+            padding: 1.25rem;
+        }
+    </style>
+</head>
+<body class="w-full flex flex-col items-center justify-center p-2 sm:p-4">
+
+    <div class="w-full max-w-4xl flex flex-col">
+        <!-- Header Section -->
+        <header class="text-center mb-4 sm:mb-8 flex-shrink-0">
+            <h1 class="text-xl sm:text-2xl md:text-3xl font-bold mb-2" style="color: var(--brand-purple);">
+                Infection Control Guidelines
+            </h1>
+            <p class="text-xs sm:text-sm font-medium max-w-xl mx-auto" style="color: var(--brand-purple-muted);">
+                Hover or tap the cards below to reveal the foundational standards.
+            </p>
+            <div class="w-16 h-1 mx-auto mt-3 rounded-full" style="background-color: var(--brand-green);"></div>
+        </header>
+
+        <!-- Grid Container for Cards -->
+        <!-- Mobile: 1 col | Tablet+: 2 cols -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+
+            <!-- Card 1 -->
+            <div class="flip-card h-56 sm:h-64" tabindex="0">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <i data-lucide="shield-check" class="w-8 h-8 sm:w-10 sm:h-10 mb-2 sm:mb-3" style="color: var(--brand-green-light);"></i>
+                        <h2 class="text-[13px] sm:text-base font-bold leading-tight px-2">
+                            Australian Guidelines for the Prevention and Control of Infection in Healthcare
+                        </h2>
+                        <p class="mt-2 text-[10px] sm:text-xs font-semibold tracking-wide uppercase" style="color: var(--brand-lilac);">
+                            (AICG/NHMRC 2019)
+                        </p>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="text-[13px] sm:text-sm md:text-base leading-relaxed font-normal">
+                            The foundational document providing a nationally accepted approach to infection prevention. It is underpinned by a risk-management framework that guides clinicians in identifying and mitigating biological hazards.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="flip-card h-56 sm:h-64" tabindex="0">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <i data-lucide="settings-2" class="w-8 h-8 sm:w-10 sm:h-10 mb-2 sm:mb-3" style="color: var(--brand-green-light);"></i>
+                        <h2 class="text-sm sm:text-lg font-bold leading-tight px-2">
+                            AS 5369:2023
+                        </h2>
+                        <p class="mt-2 text-[10px] sm:text-xs font-semibold tracking-wide uppercase" style="color: var(--brand-lilac);">
+                            National Standard
+                        </p>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="text-[13px] sm:text-sm md:text-base leading-relaxed font-normal">
+                            The uniform national standard for the reprocessing of reusable medical devices (RMDs) and other devices. This standard governs everything from quality systems and staff competency to the specific requirements for validated reprocessing procedures.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="flip-card h-56 sm:h-64" tabindex="0">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <i data-lucide="file-clock" class="w-8 h-8 sm:w-10 sm:h-10 mb-2 sm:mb-3" style="color: var(--brand-green-light);"></i>
+                        <h2 class="text-sm sm:text-lg font-bold leading-tight px-2">
+                            AS/NZS 5369:2023
+                        </h2>
+                        <p class="mt-2 text-[10px] sm:text-xs font-semibold tracking-wide uppercase" style="color: var(--brand-lilac);">
+                            Amd 1:2026 [Current]
+                        </p>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="text-[13px] sm:text-sm md:text-base leading-relaxed font-normal">
+                            The most recent amendment to the national standard. It provides updated requirements for reprocessing in both health and non-health related facilities, ensuring that the latest technological and clinical safety advancements are integrated into daily practice.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="flip-card h-56 sm:h-64" tabindex="0">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <i data-lucide="stethoscope" class="w-8 h-8 sm:w-10 sm:h-10 mb-2 sm:mb-3" style="color: var(--brand-green-light);"></i>
+                        <h2 class="text-sm sm:text-lg font-bold leading-tight px-2">
+                            ADA Infection Control Guidelines
+                        </h2>
+                        <p class="mt-2 text-[10px] sm:text-xs font-semibold tracking-wide uppercase" style="color: var(--brand-lilac);">
+                            (Current Edition)
+                        </p>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="text-[13px] sm:text-sm md:text-base leading-relaxed font-normal">
+                            A practical resource specifically designed by the Australian Dental Association to synthesise national requirements. It translates complex standards into actionable protocols tailored for the unique challenges of the dental environment.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Initialize the standard icons used on the cards
+        lucide.createIcons();
+
+        // Manage flip states strictly so only one card turns at a time
+        document.querySelectorAll('.flip-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Close all other cards when one is tapped
+                document.querySelectorAll('.flip-card').forEach(c => {
+                    if (c !== this) c.classList.remove('flipped');
+                });
+                // Toggle the clicked one
+                this.classList.toggle('flipped');
+            });
+
+            // Ensure it resets if the mouse leaves (prevents sticky states after clicking on desktop)
+            card.addEventListener('mouseleave', function() {
+                this.blur();
+                this.classList.remove('flipped');
+            });
+        });
+    </script>
+</body>
+</html>
